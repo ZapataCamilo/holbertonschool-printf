@@ -27,7 +27,7 @@ int (*specific_format(const char *fm))(va_list)
 }
 /**
   * comentario
-  *
+  * comentario2
   *
   *
  */
