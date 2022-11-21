@@ -21,7 +21,7 @@ int get_c(va_list c)
 	write(1, &ch, 1);
 	return (0);
 }
-int get_d(int(va_list d))
+int get_d(va_list d)
 {
 	int j = va_arg(d, int);
 	int i = 1;
@@ -37,7 +37,7 @@ int get_d(int(va_list d))
 
 	return (i);
 }
-int get_i(va_list i)
+/*int get_i(va_list i)
 {
 	int j = i;
 	int k = 1;
@@ -51,4 +51,4 @@ int get_i(va_list i)
 		
 	} while (j / 10 != 0);
 	return (k);
-}
+}*/

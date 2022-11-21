@@ -9,7 +9,7 @@ int (*specific_format(const char *fm))(va_list)
 	{
 		{"s", get_s},
 		{"c", get_c},
-		{"i", get_i},
+		/*{"i", get_i},*/
 		{"d", get_d},
 		{NULL, NULL}
 	};
