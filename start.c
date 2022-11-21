@@ -52,7 +52,7 @@ int _printf(const char *format, ...)
 			buff[i] = format[i];
 		}
 		else
-			count += write(1,(&specific_format(*format[i + 1]))(va_list));/*specific_format(*format[i + 1])(va_list li);*/	
+			count += write(1,specific_format(format), 1);/*specific_format(*format[i + 1])(va_list li);*/	
 		i++;
 	}
 	write(1, buff, count);
@@ -63,6 +63,10 @@ int _printf(const char *format, ...)
 int main()
 {
 	char *p = "hola";
+	char f = 'h';
+	int i = 10;
 	_printf("Hola mundo%s\n", *p);
+	_printf("%c", f);
+	_printf("%i", i);
 	return(0);
 }

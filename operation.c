@@ -30,7 +30,7 @@ int get_d(va_list d)
 	{
 		j /= 10;
 
-		if (d / 10 > 1)
+		if ((va_arg(d, int) / 10) > 1)
 			i++;
 
 	} while (j / 10 != 0);
