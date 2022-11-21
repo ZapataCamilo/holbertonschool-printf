@@ -39,16 +39,16 @@ int get_d(int(va_list d))
 }
 int get_i(va_list i)
 {
-	int j = d;
-	int i = 1;
+	int j = i;
+	int k = 1;
 
 	do
 	{
 		j /= 10;
 
-		if (d / 10 > 1)
-			i++;
+		if (i / 10 > 1)
+			k++;
 		
 	} while (j / 10 != 0);
-	return (i);
+	return (k);
 }
