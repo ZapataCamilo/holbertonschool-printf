@@ -9,9 +9,9 @@ int (*specific_format(const char *fm))(va_list)
 	{
 		{"s", get_s},
 		{"c", get_c},
-	/*	{"i", get_i},
+		{"i", get_i},
 		{"d", get_d},
-		{NULL, NULL}*/
+		{NULL, NULL}
 	};
 
 	int i = 0;
@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 			count += write(1,(&specific_format(*format[i + 1]))(va_list));/*specific_format(*format[i + 1])(va_list li);*/	
 		i++;
 	}
-	write(STDOUT_FILENO, buff, count);
+	write(1, buff, count);
 	free(buff);
 	va_end(li);
 	return(count);

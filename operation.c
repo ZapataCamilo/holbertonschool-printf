@@ -21,17 +21,16 @@ int get_c(va_list c)
 	write(1, &ch, 1);
 	return (0);
 }
-int get_d(va_list d)
+int get_d(int(va_list d))
 {
-	int n = 987654321;
-	int j = n;
+	int j = va_arg(d, int);
 	int i = 1;
 
 	do
 	{
 		j /= 10;
 
-		if (n / 10 > 1)
+		if (d / 10 > 1)
 			i++;
 
 	} while (j / 10 != 0);
@@ -40,16 +39,16 @@ int get_d(va_list d)
 }
 int get_i(va_list i)
 {
-	int num = 987654321;
-	int d = num;
+	int j = d;
 	int i = 1;
 
 	do
 	{
-		d /= 10;
+		j /= 10;
 
-		if (num / 10 > 1)
+		if (d / 10 > 1)
 			i++;
 		
-	} while (d / 10 != 0);
+	} while (j / 10 != 0);
+	return (i);
 }
