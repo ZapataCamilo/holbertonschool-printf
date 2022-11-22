@@ -3,28 +3,30 @@
 #include <unistd.h>
 #include "_print.h"
 
-int get_s(va_list s)
+/*int get_s(va_list nextarg, char *, int)
 {
-	char *str = va_arg(s, char *);
+	int str = va_arg(nextarg, char *);
 	int i = 0;
 
 	while (str[i] != '\0')
 	{
-
-		write(1, &str[i], 1);
-		i++;
+		str[i] = va_arg(nextarg[i], char);
+			i++;
 	}
 
 	return (i);
 
-}
-int get_c(va_list c)
+}*/
+
+int get_c(va_list li, char * string, int j)
 {
-	char ch = va_arg(c, int);
-	write(1, &ch, 1);
-	return (0);
+	int ch = va_arg(li, int);
+	string[j] = ch;
+	j += 1;
+	return (j);
 }
-int get_d(va_list d)
+
+/*int get_d(va_list d)
 {
 	int j = va_arg(d, int);
 	int i = 1;
@@ -39,19 +41,4 @@ int get_d(va_list d)
 	} while (j / 10 != 0);
 
 	return (i);
-}
-/*int get_i(va_list i)
-{
-	int j = i;
-	int k = 1;
-
-	do
-	{
-		j /= 10;
-
-		if (i / 10 > 1)
-			k++;
-		
-	} while (j / 10 != 0);
-	return (k);
 }*/

@@ -3,24 +3,24 @@
 #include <unistd.h>
 #include "_print.h"
 
-int (*specific_format(const char *fm))(va_list)
+int (*specific_format(char *fm))(va_list, char *, int)
 {
-	fun funtion[] =
+	fun function[] =
 	{
-		{"s", get_s},
+		/*{"s", get_s},*/
 		{"c", get_c},
-		/*{"i", get_i},*/
-		{"d", get_d},
+		/*{"i", get_d},*/
+		/*{"d", get_d},*/
 		{NULL, NULL}
 	};
 
 	int i = 0;
 
-	while (funtion[i].tipe)
+	while (function[i].tipe)
 	{
-		if (*fm == *(funtion[i].tipe))
+		if (*fm == *(function[i].tipe))
 		{
-			return(funtion[i].op);
+			return(function[i].op);
 		}
 		i++;
 	}
@@ -52,8 +52,10 @@ int _printf(const char *format, ...)
 			buff[i] = format[i];
 		}
 		else
-			count += write(1,specific_format(format), 1);/*specific_format(*format[i + 1])(va_list li);*/	
+		{
+			count += specific_format(*format [i + 1])(li, buff, count);
 		i++;
+		}
 	}
 	write(1, buff, count);
 	free(buff);
@@ -62,11 +64,11 @@ int _printf(const char *format, ...)
 }
 int main()
 {
-	char *p = "hola";
+/*	char *p = "hola";*/
 	char f = 'h';
-	int i = 10;
-	_printf("Hola mundo%s\n", *p);
+	/*int i = 10;*/
+	/*_printf("Hola mundo%s\n", *p);*/
 	_printf("%c", f);
-	_printf("%i", i);
+	/*_printf("%i", i);*/
 	return(0);
 }
