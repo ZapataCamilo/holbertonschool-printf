@@ -18,7 +18,7 @@
 
 }*/
 
-int get_c(va_list li, char * string, int j)
+int get_c(va_list li, char *string, int j)
 {
 	int ch = va_arg(li, int);
 	string[j] = ch;

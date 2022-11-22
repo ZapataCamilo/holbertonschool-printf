@@ -6,12 +6,12 @@
 
 typedef struct funtions
 {
-	char *tipe;
-	int (*op)(va_list);
+	char *type;
+	int (*op)(va_list, char *, int);
 } fun;
 /*int *specific_format(va_list li, char *string, int j, const char *fm);*/
 
-int (*specific_format(char *fm))(va_list, char *, int);
+int (*specific_format(const char *fm))(va_list li, char *string, int j);
 int _printf(const char *format, ...);
 int get_c(va_list li, char *string, int j);
 /*int get_s(va_list s);

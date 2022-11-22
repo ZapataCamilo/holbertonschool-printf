@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "_print.h"
 
-int (*specific_format(char *fm))(va_list, char *, int)
+int (*specific_format(const char *fm))(va_list li, char *string, int j)
 {
 	fun function[] =
 	{
@@ -15,10 +15,9 @@ int (*specific_format(char *fm))(va_list, char *, int)
 	};
 
 	int i = 0;
-
-	while (function[i].tipe)
+	while (function[i].type)
 	{
-		if (*fm == *(function[i].tipe))
+		if (*fm == *function[i].type)
 		{
 			return(function[i].op);
 		}
@@ -53,9 +52,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			count += specific_format(*format [i + 1])(li, buff, count);
-		i++;
+			count += (*specific_format(&format[i + 1]))(li, buff, count);
 		}
+		i++;
 	}
 	write(1, buff, count);
 	free(buff);
@@ -68,7 +67,8 @@ int main()
 	char f = 'h';
 	/*int i = 10;*/
 	/*_printf("Hola mundo%s\n", *p);*/
-	_printf("%c", f);
+	_printf("%c", 'H');
 	/*_printf("%i", i);*/
 	return(0);
 }
+
