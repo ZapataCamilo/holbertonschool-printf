@@ -14,7 +14,6 @@ typedef struct funtions
 int (*specific_format(const char *fm))(va_list li, char *string, int j);
 int _printf(const char *format, ...);
 int get_c(va_list li, char *string, int j);
-/*int get_s(va_list s);
-int get_d(va_list d);*/
-
+int get_s(va_list li, char *string, int j);
+/*int get_d(va_list li, char *string, int j);*/
 #endif

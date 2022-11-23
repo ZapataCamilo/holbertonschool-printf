@@ -7,7 +7,7 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 {
 	fun function[] =
 	{
-		/*{"s", get_s},*/
+		{"s", get_s},
 		{"c", get_c},
 		/*{"i", get_d},*/
 		/*{"d", get_d},*/
@@ -53,6 +53,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
+			i++;
 		}
 		i++;
 	}
@@ -63,11 +64,11 @@ int _printf(const char *format, ...)
 }
 int main()
 {
-/*	char *p = "hola";*/
-	char f = 'h';
+	char *p = "Buenos dias";
+	char f = 'M';
 	/*int i = 10;*/
 	/*_printf("Hola mundo%s\n", *p);*/
-	_printf("%c", 'H');
+	_printf("Hola %cundo, %s", f, p);
 	/*_printf("%i", i);*/
 	return(0);
 }

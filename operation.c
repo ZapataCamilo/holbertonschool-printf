@@ -2,21 +2,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "_print.h"
+#include <string.h>
 
-/*int get_s(va_list nextarg, char *, int)
+int get_s(va_list li, char *string, int j)
 {
-	int str = va_arg(nextarg, char *);
+	char *frase = va_arg(li, char *);
 	int i = 0;
 
-	while (str[i] != '\0')
+	while (frase[i] != '\0')
 	{
-		str[i] = va_arg(nextarg[i], char);
-			i++;
+		string[j] = frase[i];
+		i++, j++;
 	}
-
-	return (i);
-
-}*/
+	return (j);
+}
 
 int get_c(va_list li, char *string, int j)
 {
