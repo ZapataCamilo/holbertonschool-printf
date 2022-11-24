@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "_print.h"
+#include "main.h"
 
 int (*specific_format(const char *fm))(va_list li, char *string, int j)
 {
