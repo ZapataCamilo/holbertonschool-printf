@@ -46,8 +46,3 @@ int actualget_d(char * numchar, char *string, int j)
     return (i);
 }
 
-int get_perc(va_list li, char *string, int j)
-{
-string[j] = '%';
-return(1);
-}

@@ -3,18 +3,21 @@
 
 int itoa(int value, char *string, int j)
 {
-int len = value;
-int h = 1;
-int devito;
+	int len = value;
+	int h = 1;
+    int x = 0;
+    int y = 0;
+    char temp[1] = "0";/*string temporal*/
+    char *alderecho = &temp[0]; /*pointer a la dirección del string temporal*/
+    int n = abs(value);
+    int i = 0;
+    char numchar[10];
 
 do {len /= 10;
 if (value / 10 > 1){
   h++;}
 } while (len/ 10 != 0);
    
-    int n = abs(value);
-    int i = 0;
-    char numchar[10];
    
     while (n)
     {
@@ -33,10 +36,6 @@ if (value / 10 > 1){
     
     numchar[i] = '\0';
 
-    int x = 0;
-    int y = 0;
-    char temp[1] = "0";/*string temporal*/
-    char *alderecho = &temp[0]; /*pointer a la dirección del string temporal*/
 
     while (numchar[x])
     {

@@ -16,7 +16,6 @@ int _printf(const char *format, ...);
 int get_c(va_list li, char *string, int j);
 int get_s(va_list li, char *string, int j);
 int get_d(va_list li, char *string, int j);
-int get_perc(va_list li, char *string, int j);
 int itoa(int value, char *string, int j);
 int actualget_d(char * numchar, char *string, int j);
 #endif
