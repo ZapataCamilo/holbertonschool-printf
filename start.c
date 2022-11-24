@@ -9,12 +9,14 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 	{
 		{"s", get_s},
 		{"c", get_c},
-		/*{"i", get_d},*/
-		/*{"d", get_d},*/
+		{"i", get_d},
+		{"d", get_d},
+		{"%", get_perc},
 		{NULL, NULL}
 	};
 
 	int i = 0;
+
 	while (function[i].type)
 	{
 		if (*fm == *function[i].type)
@@ -47,8 +49,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
+			buff[count] = format[i];
 			count++;
-			buff[i] = format[i];
 		}
 		else
 		{
@@ -64,12 +66,29 @@ int _printf(const char *format, ...)
 }
 int main()
 {
-	char *p = "Buenos dias";
-	char f = 'M';
-	/*int i = 10;*/
-	/*_printf("Hola mundo%s\n", *p);*/
-	_printf("Hola %cundo, %s", f, p);
-	/*_printf("%i", i);*/
-	return(0);
+    int len;
+    int len2;
+    unsigned int ui;
+    void *addr;    
+    
+    len = _printf("Let's try to printf a simple sentence.\n");
+    len2 = printf("Let's try to printf a simple sentence.\n");
+    _printf("Length:[%d, %i]\n", len, len);
+    printf("Length:[%d, %i]\n", len2, len2);
+    _printf("Negative:[%d]\n", -762534);
+    printf("Negative:[%d]\n", -762534);
+    _printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+    len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
+	
+	/*int n1 = 123;
+	char *edad = "Edad:";
+	_printf("Hola, mi %s es %d", edad, n1);*/
+	return (0);
 }
 

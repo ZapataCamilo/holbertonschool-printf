@@ -14,7 +14,7 @@ int get_s(va_list li, char *string, int j)
 		string[j] = frase[i];
 		i++, j++;
 	}
-	return (j);
+	return (i);
 }
 
 int get_c(va_list li, char *string, int j)
@@ -22,22 +22,32 @@ int get_c(va_list li, char *string, int j)
 	int ch = va_arg(li, int);
 	string[j] = ch;
 	j += 1;
-	return (j);
+	return (1);
 }
 
-/*int get_d(va_list d)
+int get_d(va_list li, char *string, int j)
 {
-	int j = va_arg(d, int);
-	int i = 1;
+	int frase = va_arg(li, int);
+	int devitoa = itoa(frase, string, j);
+	j = devitoa;
 
-	do
-	{
-		j /= 10;
+	return(j);
+}
 
-		if ((va_arg(d, int) / 10) > 1)
-			i++;
+int actualget_d(char * numchar, char *string, int j)
+{
+    int i = 0;
 
-	} while (j / 10 != 0);
+    while (numchar[i] != '\0')
+    {
+        string[j] = numchar[i];
+        i++, j++;
+    }
+    return (i);
+}
 
-	return (i);
-}*/
+int get_perc(va_list li, char *string, int j)
+{
+string[j] = '%';
+return(1);
+}
