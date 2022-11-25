@@ -53,13 +53,19 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 		{
 			buff[count] = format[i];
-			buff[count + 1] = '%';
 			count++;
-		}else if (format[i] == '%' && format[i + 1] == '%')
-		{
+		}else if (format[i] == '%')
+		{	
+			if (format[i + 1] == '%')
+			{
 			buff[count] = format[i];
-			count++;count++,i++;}
-		else
+			count++;
+			}
+			else if (!format [i + 1])
+			{
+				break;
+			}
+		}else
 		{
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
 			i++;
