@@ -12,7 +12,7 @@ int get_s(va_list li, char *string, int j)
 
 	if (frase == NULL)
 	{
-		while (i < 6)
+		while (i <= 6)
 		{
 		string[j] = nul[i];
 		i++;
