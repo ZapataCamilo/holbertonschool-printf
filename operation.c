@@ -28,10 +28,9 @@ int get_c(va_list li, char *string, int j)
 int get_d(va_list li, char *string, int j)
 {
 	int frase = va_arg(li, int);
-	int devitoa = itoa(frase, string, j);
-	j = devitoa;
+	int dev_itoa = itoa(frase, string, j);
 
-	return(j);
+	return(dev_itoa);
 }
 
 int actualget_d(char * numchar, char *string, int j)

@@ -12,6 +12,7 @@ int itoa(int value, char *string, int j)
     int n = abs(value);
     int i = 0;
     char numchar[10];
+    int dev_acgd;
 
 do {len /= 10;
 if (value / 10 > 1){
@@ -49,5 +50,6 @@ if (value / 10 > 1){
         *alreves = numchar[x - (y + 1)]; /*llevo si-1 a s0*/
         numchar[x - (y + 1)] = alderecho[0]; /*llevo s0 a si-1*/
     }
-actualget_d(numchar, string, j);
+dev_acgd = actualget_d(numchar, string, j);
+return(dev_acgd);
 }
