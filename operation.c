@@ -8,6 +8,17 @@ int get_s(va_list li, char *string, int j)
 {
 	char *frase = va_arg(li, char *);
 	int i = 0;
+	char *nul = "(null)";
+
+	if (frase == NULL)
+	{
+		while (i < 6)
+		{
+		string[j] = nul[i];
+		i++;
+		}
+		return(6);
+	}
 
 	while (frase[i] != '\0')
 	{
