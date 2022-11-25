@@ -11,7 +11,6 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 		{"c", get_c},
 		{"i", get_d},
 		{"d", get_d},
-		{"%", get_perc},
 		{NULL, NULL}
 	};
 
@@ -25,6 +24,7 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 		}
 		i++;
 	}
+return(0);
 }
 /**
   * comentario
@@ -51,7 +51,10 @@ int _printf(const char *format, ...)
 		{
 			buff[count] = format[i];
 			count++;
-		}
+		}else if (format[i] == '%' && format[i + 1] == '%')
+		{
+			buff[count] = format[i];
+			count++;}
 		else
 		{
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
@@ -68,8 +71,6 @@ int main()
 {
     int len;
     int len2;
-    unsigned int ui;
-    void *addr;    
     
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
