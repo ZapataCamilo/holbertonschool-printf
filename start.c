@@ -43,18 +43,22 @@ int _printf(const char *format, ...)
 	if (!format)
 		exit (1);
 
-	buff = malloc(1682);
+	buff = malloc(1691);
+
+	if (buff == NULL)
+		free(buff);
 
 	while (format[i])
 	{
 		if (format[i] != '%')
 		{
 			buff[count] = format[i];
+			buff[count + 1] = '%';
 			count++;
 		}else if (format[i] == '%' && format[i + 1] == '%')
 		{
 			buff[count] = format[i];
-			count++;}
+			count++;count++,i++;}
 		else
 		{
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
