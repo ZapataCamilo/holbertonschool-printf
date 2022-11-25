@@ -62,7 +62,7 @@ int _printf(const char *format, ...)
 			buff[count] = format[i];
 			count++;
 			}
-			else if (!format [i + 1])
+			else if (!format [i + 1] || format[i + 1] == '\n')
 			{
 				break;
 			}
