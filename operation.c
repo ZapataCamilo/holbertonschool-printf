@@ -16,8 +16,9 @@ int get_s(va_list li, char *string, int j)
 		{
 		string[j] = nul[i];
 		i++;
+		j++;
 		}
-		return(6);
+		return(j);
 	}
 
 	while (frase[i] != '\0')
