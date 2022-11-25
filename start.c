@@ -48,6 +48,11 @@ int _printf(const char *format, ...)
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
 			i++;
 			}
+			else
+			{
+			buff[count] = format[i];
+			count++;
+			}
 		}
 		i++;
 	}
