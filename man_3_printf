@@ -1,0 +1,38 @@
+.TH _printf 1 "25 nov 2022" "1.0" "_printf man page"
+.SH NAME
+_printf \- print the string for the standar output
+.SH SYNOPSIS
+_printf FORMAT [ARGUMENT]...
+.SH DESCRIPTION
+_printf reads the arguments whether they are characters, strings, integers or decimals and prints them on standar output
+.SH OPTIONS
+_printf receive arguments such as:
+
+	%c \- is to print a charecter
+
+	%s \- is to print a string
+
+	%d \- is to print a decimal
+
+	%i \- is to print a integer
+.SH HOW TO USE IT
+	int main()
+
+	{
+
+		char ex = 'e';
+
+		_printf("%c", ex);
+	
+
+		return(0);
+
+	}
+.SH BUGS
+if you see any bug in the funtion please let me now with a mail (5864@holbertonstudents.com - 5857@holbertonstudents.com).
+.SH AUTHOR
+ Written by 
+
+ 	\-Miguel Bedoya (https://github.com/gmbedoyal?tab=repositories)
+
+	\-Camilo Zapata (https://github.com/ZapataCamilo?tab=repositories).
