@@ -68,7 +68,7 @@ int _printf(const char *format, ...)
 			}	
 			else if (format[i + 1] == '\n')
 			{
-				putchar('\n');
+				buff[i] = '\n';
 			}
 			else if (format [i + 1] == 'c' || 'd' || 'i' || 's')
 			{
