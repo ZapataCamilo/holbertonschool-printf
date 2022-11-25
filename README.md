@@ -17,8 +17,8 @@
  
  ---
  **Options**
-						 
-			%c - is to print a charecter
+
+ 	    %c - is to print a charecter
 
             %s - is to print a string
 
