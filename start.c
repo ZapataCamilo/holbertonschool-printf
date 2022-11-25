@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 	if (!format)
 		exit (1);
 
-	buff = malloc(1024);
+	buff = malloc(1682);
 
 	while (format[i])
 	{
