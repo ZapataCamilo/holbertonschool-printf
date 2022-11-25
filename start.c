@@ -1,31 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "main.h"
-
-int (*specific_format(const char *fm))(va_list li, char *string, int j)
-{
-	fun function[] =
-	{
-		{"s", get_s},
-		{"c", get_c},
-		{"i", get_d},
-		{"d", get_d},
-		{NULL, NULL}
-	};
-
-	int i = 0;
-
-	while (function[i].type)
-	{
-		if (*fm == *function[i].type)
-		{
-			return(function[i].op);
-		}
-		i++;
-	}
-return(0);
-}
 /**
   * comentario
   * comentario2
@@ -45,8 +18,8 @@ int _printf(const char *format, ...)
 
 	buff = malloc(1691);
 
-	if (buff == NULL)
-		free(buff);
+	if (buff == NULL || format == NULL || (format[0] == '%' && format [1] == '\n'))
+		return (-1);
 
 	while (format[i])
 	{
@@ -55,13 +28,13 @@ int _printf(const char *format, ...)
 			buff[count] = format[i];
 			count++;
 		}
-		else if (format[i] == '%')
+		else
 		{
 			if (format[i + 1] == '%')
 			{
-			buff[count] = format[i];
-			count++;
-			}
+				buff[count] = format[i];
+				count++;
+			}	
 			else if (!format [i + 1])
 			{
 				break;
@@ -83,4 +56,3 @@ int _printf(const char *format, ...)
 	va_end(li);
 	return(count);
 }
-
