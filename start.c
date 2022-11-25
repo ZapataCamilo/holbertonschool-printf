@@ -54,8 +54,9 @@ int _printf(const char *format, ...)
 		{
 			buff[count] = format[i];
 			count++;
-		}else if (format[i] == '%')
-		{	
+		}
+		else if (format[i] == '%')
+		{
 			if (format[i + 1] == '%')
 			{
 			buff[count] = format[i];
@@ -65,10 +66,11 @@ int _printf(const char *format, ...)
 			{
 				break;
 			}
-		}else
-		{
+			else if (format [i + 1] == 'c' || 'd' || 'i' || 's')
+			{
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
 			i++;
+			}
 		}
 		i++;
 	}
