@@ -1,8 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 #include "main.h"
-#include <string.h>
+
+int case_selector(char s)
+{
+if(s == 'd' || s == 'i' || s == 's' || s == 'c' || s == '%')
+        return(1);
+    else
+        return(0);
+}
 
 int get_s(va_list li, char *string, int j)
 {

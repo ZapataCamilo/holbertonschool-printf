@@ -8,6 +8,7 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 		{"c", get_c},
 		{"i", get_d},
 		{"d", get_d},
+		{"%", get_perc},
 		{NULL, NULL}
 	};
 
@@ -22,4 +23,12 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 		i++;
 	}
 return(0);
+}
+
+int get_perc(va_list __attribute__((unused)) li, char *string, int j)
+{
+	string[j] = '%';
+	j++;
+
+return(1);
 }

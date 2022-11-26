@@ -28,31 +28,15 @@ int _printf(const char *format, ...)
 			buff[count] = format[i];
 			count++;
 		}
+		else if (format[i] == '%' && case_selector(format[i + 1]) == 1)
+		{
+			count += (*specific_format(&format[i + 1]))(li, buff, count);
+			i++;	
+		}
 		else
 		{
-			if (format[i + 1] == '%')
-			{
-				buff[count] = format[i];
-				count++;
-			}	
-			else if (!format [i + 1])
-			{
-				break;
-			}	
-			else if (format[i + 1] == '\n')
-			{
-				buff[i] = '\n';
-			}
-			else if (format [i + 1] == 'c' || 'd' || 'i' || 's')
-			{
-			count += (*specific_format(&format[i + 1]))(li, buff, count);
-			i++;
-			}
-			else
-			{
 			buff[count] = format[i];
 			count++;
-			}
 		}
 		i++;
 	}
