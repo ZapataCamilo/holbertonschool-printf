@@ -33,9 +33,10 @@ int _printf(const char *format, ...)
 			count += (*specific_format(&format[i + 1]))(li, buff, count);
 			i++;	
 		}
-		else
-		{
-			buff[count] = format[i];
+		else {
+			if (buff[i + 1] == '\0')
+			return(0);	
+		buff[count] = format[i];
 			count++;
 		}
 		i++;

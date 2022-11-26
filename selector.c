@@ -27,8 +27,8 @@ return(0);
 
 int get_perc(va_list __attribute__((unused)) li, char *string, int j)
 {
-	string[j] = '%';
-	j++;
+		string[j] = '%';
+		j++;
 
 return(1);
 }
