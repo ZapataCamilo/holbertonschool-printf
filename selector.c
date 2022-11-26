@@ -3,15 +3,12 @@
 /**
  * specific_format - points to a function
  * @fm: specifier
- * @string: buffer to print
- * @j: length of buffer
  * Return: 0
  */
 
 int (*specific_format(const char *fm))(va_list li, char *string, int j)
 {
-	fun function[] =
-	{
+	fun function[] = {
 		{"s", get_s},
 		{"c", get_c},
 		{"i", get_d},
@@ -26,17 +23,9 @@ int (*specific_format(const char *fm))(va_list li, char *string, int j)
 	{
 		if (*fm == *function[i].type)
 		{
-			return(function[i].op);
+			return (function[i].op);
 		}
 		i++;
 	}
-return(0);
-}
-
-int get_perc(va_list __attribute__((unused)) li, char *string, int j)
-{
-		string[j] = '%';
-		j++;
-
-return(1);
+	return (0);
 }

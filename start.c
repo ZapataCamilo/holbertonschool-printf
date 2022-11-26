@@ -1,7 +1,8 @@
 #include "main.h"
 /**
-  * _printf - print chars, strings and integers  
+  * _printf - print chars, strings and integers
   * @format: directives
+  *Return: Length of string
  */
 int _printf(const char *format, ...)
 {
@@ -12,29 +13,25 @@ int _printf(const char *format, ...)
 	va_start(li, format);
 
 	if (!format)
-		exit (1);
-
+		exit(1);
 	buff = malloc(1691);
-
-	if (buff == NULL || format == NULL || (format[0] == '%' && format [1] == '\n'))
+	if (buff == NULL || format == NULL || (format[0] == '%' && format[1] == '\n'))
 		return (-1);
-
 	while (format[i])
 	{
 		if (format[i] != '%')
-		{
-			buff[count] = format[i];
+		{buff[count] = format[i];
 			count++;
 		}
 		else if (format[i] == '%' && case_selector(format[i + 1]) == 1)
-		{
-			count += (*specific_format(&format[i + 1]))(li, buff, count);
-			i++;	
+		{count += (*specific_format(&format[i + 1]))(li, buff, count);
+			i++;
 		}
-		else {
+		else
+		{
 			if (format[1] == '\0')
-			return(-1);	
-		buff[count] = format[i];
+			return (-1);
+			buff[count] = format[i];
 			count++;
 		}
 		i++;
@@ -42,5 +39,5 @@ int _printf(const char *format, ...)
 	write(1, buff, count);
 	free(buff);
 	va_end(li);
-	return(count);
+	return (count);
 }
