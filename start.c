@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 		}
 		else {
 			if (format[1] == '\0')
-			return(0);	
+			return(-1);	
 		buff[count] = format[i];
 			count++;
 		}
