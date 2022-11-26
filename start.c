@@ -1,9 +1,7 @@
 #include "main.h"
 /**
-  * comentario
-  * comentario2
-  *
-  *
+  * _printf - print chars, strings and integers  
+  * @format: directives
  */
 int _printf(const char *format, ...)
 {

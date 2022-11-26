@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * case_selector - choose a function from descriptor
+ * @s: descriptor
+ * Return: 1 if true, 0 if fals
+ */
 int case_selector(char s)
 {
 if(s == 'd' || s == 'i' || s == 's' || s == 'c' || s == '%')
@@ -8,6 +12,13 @@ if(s == 'd' || s == 'i' || s == 's' || s == 'c' || s == '%')
         return(0);
 }
 
+/**
+ * get_s - returns a string
+ * @li: variadic arguments
+ * @string: buffer to print
+ * @j: length of buffer
+ * Return: j
+ */
 int get_s(va_list li, char *string, int j)
 {
 	char *frase = va_arg(li, char *);
@@ -33,6 +44,13 @@ int get_s(va_list li, char *string, int j)
 	return (i);
 }
 
+/**
+ * get_c - returns a character
+ * @li: variadic arguments
+ * @string: buffer to print
+ * @j: length of buffer
+ * Return: j
+ */
 int get_c(va_list li, char *string, int j)
 {
 	int ch = va_arg(li, int);
@@ -41,6 +59,13 @@ int get_c(va_list li, char *string, int j)
 	return (1);
 }
 
+/**
+ * get_d - returns an integer
+ * @li: variadic arguments
+ * @string: buffer to print
+ * @j: length of buffer
+ * Return: digits on the integer
+ */
 int get_d(va_list li, char *string, int j)
 {
 	int frase = va_arg(li, int);
@@ -49,6 +74,13 @@ int get_d(va_list li, char *string, int j)
 	return(dev_itoa);
 }
 
+/**
+ * actualget_d - returns a string
+ * @li: variadic arguments
+ * @string: buffer to print
+ * @j: length of buffer
+ * Return: j
+ */
 int actualget_d(char * numchar, char *string, int j)
 {
     int i = 0;

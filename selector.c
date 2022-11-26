@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * specific_format - points to a function
+ * @fm: specifier
+ * @string: buffer to print
+ * @j: length of buffer
+ * Return: 0
+ */
+
 int (*specific_format(const char *fm))(va_list li, char *string, int j)
 {
 	fun function[] =
